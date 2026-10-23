@@ -41,7 +41,8 @@ const newId = () =>
     ? crypto.randomUUID()
     : String(Date.now() + Math.random());
 
-const API_URL = "http://127.0.0.1:8000/api/notes/";
+    
+const API_URL = "https://note-backend-fxeh.onrender.com/api/notes/";
 
 export default function Notes({ user = "" }) {
   const [notes, setNotes] = useState([]);

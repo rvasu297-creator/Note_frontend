@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Login.css";
 
-const API_URL = "http://127.0.0.1:8000/api/login/";
+const API_URL = "https://note-backend-fxeh.onrender.com/api/login/";
 
 const loginRequest = async ({ username, password }) => {
   const response = await fetch(API_URL, {
