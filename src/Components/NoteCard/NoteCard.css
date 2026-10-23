@@ -1,0 +1,180 @@
+.note-card {
+  position: relative;
+  display: block;
+  margin: 0 0 16px;
+  padding: 18px 18px 14px;
+  color: var(--c-text);
+  background: var(--c-bg);
+  border-radius: 18px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.note-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.note-open:focus-visible {
+  outline: 2px solid var(--c-text);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.note-title {
+  display: block;
+  margin: 0 0 10px;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.note-title.has-pin {
+  padding-right: 24px;
+}
+
+.note-body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 9;
+  line-clamp: 9;
+  overflow: hidden;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  opacity: 0.92;
+}
+
+.note-pin-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  opacity: 0.85;
+}
+
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.note-tag {
+  padding: 3px 10px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  background: var(--c-chip);
+  border-radius: 999px;
+}
+
+.note-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  min-width: 0;
+  font-size: 0.78rem;
+}
+
+.note-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.85;
+}
+
+.note-reminder {
+  padding: 2px 9px;
+  background: var(--c-chip);
+  border-radius: 999px;
+}
+
+.note-reminder.passed {
+  opacity: 0.55 !important;
+}
+
+/* hover toolbar (always visible on touch screens) */
+.note-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 4px;
+  background: #fff8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.note-card:hover .note-actions,
+.note-card:focus-within .note-actions {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .note-actions {
+    opacity: 1;
+  }
+}
+
+.note-actions button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: #6b5442;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.note-actions button:hover {
+  background: #f0e6d8;
+}
+
+.note-actions .on-pin {
+  color: #c9892f;
+}
+
+.note-actions .on-fav {
+  color: #d36b5e;
+}
+
+.note-actions .danger:hover {
+  color: #c0453a;
+}
+
+.note-actions button:focus-visible {
+  outline: 2px solid #7aab8a;
+}

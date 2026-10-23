@@ -1,0 +1,223 @@
+/* Fonts: Marcellus for brand, Sora for UI text */
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Sora:wght@400;500;600&display=swap");
+
+/* Theme colours (set on <html data-theme="..."> by the Navbar) */
+:root[data-theme="dark"] {
+  --n-nav-bg: #26211d;
+  --n-main-bg: #1c1816;
+  --n-line: #3a332d;
+  --n-text: #efe3cf;
+  --n-heading: #f3e6d0;
+  --n-icon: #cdbfa8;
+  --n-hover: rgba(255, 255, 255, 0.07);
+  --n-pop-bg: #2c261f;
+}
+
+:root[data-theme="light"] {
+  --n-nav-bg: #fff8f0;
+  --n-main-bg: #f3ebdf;
+  --n-line: #e6dccd;
+  --n-text: #4a3728;
+  --n-heading: #3b2a1d;
+  --n-icon: #7a5f48;
+  --n-hover: rgba(90, 60, 30, 0.07);
+  --n-pop-bg: #ffffff;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  padding: 0 16px;
+  background: var(--n-nav-bg);
+  border-bottom: 1px solid var(--n-line);
+  color: var(--n-text);
+  font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.nav button {
+  font-family: inherit;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-brand-name {
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--n-heading);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* round icon buttons */
+.nav-icon-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--n-icon);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-icon-btn.outlined {
+  border-color: var(--n-line);
+}
+
+.nav-icon-btn:hover {
+  color: var(--n-heading);
+  background: var(--n-hover);
+}
+
+/* user */
+.nav-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.nav-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1b1714;
+  background: #7aab8a;
+  border: 0;
+  border-radius: 50%;
+  cursor: default;
+}
+
+.nav-username {
+  max-width: 160px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--n-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* small popup with the name (phones only) */
+.nav-pop {
+  display: none;
+}
+
+/* Logout – same look as the green "New note" button */
+.nav-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1b1714;
+  background: #7aab8a;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nav-logout:hover {
+  background: #8bbb9a;
+}
+
+.nav-icon-btn:focus-visible,
+.nav-avatar:focus-visible,
+.nav-logout:focus-visible {
+  outline: 2px solid #7aab8a;
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .nav {
+    gap: 8px;
+    padding: 0 12px;
+  }
+  .nav-right {
+    gap: 8px;
+  }
+  .nav-username,
+  .nav-logout-text {
+    display: none;
+  }
+  .nav-logout {
+    width: 40px;
+    padding: 0;
+  }
+  .nav-avatar {
+    cursor: pointer;
+  }
+  .nav-pop {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: block;
+    width: max-content;
+    max-width: 70vw;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: var(--n-text);
+    background: var(--n-pop-bg);
+    border: 1px solid var(--n-line);
+    border-radius: 12px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-brand-name {
+    display: none;
+  }
+  .nav-icon-btn,
+  .nav-avatar,
+  .nav-logout {
+    width: 36px;
+    height: 36px;
+  }
+}

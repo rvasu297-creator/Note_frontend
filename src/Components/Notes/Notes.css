@@ -1,0 +1,351 @@
+:root:not([data-theme="light"]) {
+  --nt-muted: #a39b8b;
+}
+
+:root[data-theme="light"] {
+  --nt-muted: #8a7662;
+}
+
+.nt-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 96px;
+  color: var(--n-text);
+  font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.nt-page button {
+  font-family: inherit;
+}
+
+.nt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+
+
+/* green "New note" button */
+.nt-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1b1714;
+  background: #7aab8a;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nt-new:hover {
+  background: #8bbb9a;
+}
+
+/* search bar (shows after the first note is added) */
+.nt-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 520px;
+  height: 48px;
+  margin: 0 auto 18px;
+  padding: 0 14px 0 18px;
+  color: var(--nt-muted);
+  background: var(--n-nav-bg);
+  border: 1px solid var(--n-line);
+  border-radius: 999px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.nt-search:focus-within {
+  border-color: #7aab8a;
+  box-shadow: 0 0 0 3px rgba(122, 171, 138, 0.22);
+}
+
+.nt-search svg {
+  flex-shrink: 0;
+}
+
+.nt-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  font-family: inherit;
+  font-size: 1rem; /* 16px: no zoom on iPhone */
+  color: var(--n-text);
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.nt-search input::placeholder {
+  color: var(--nt-muted);
+}
+
+.nt-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.nt-search button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--nt-muted);
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nt-search button:hover {
+  color: var(--n-heading);
+  background: var(--n-hover);
+}
+
+/* tabs: All notes | Favorites | Pinned */
+.nt-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.nt-tab {
+  height: 38px;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  color: var(--n-icon);
+  background: transparent;
+  border: 1px solid var(--n-line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.nt-tab:hover {
+  color: var(--n-heading);
+  background: var(--n-hover);
+}
+
+.nt-tab.active {
+  color: #1b1714;
+  background: #7aab8a;
+  border-color: #7aab8a;
+}
+
+/* colourful masonry board */
+.nt-grid {
+  columns: 260px;
+  column-gap: 16px;
+}
+
+.nt-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 420px;
+  margin: 60px auto 0;
+  text-align: center;
+  color: #7aab8a;
+}
+
+.nt-empty h2 {
+  margin: 14px 0 8px;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--n-heading);
+}
+
+.nt-empty p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--nt-muted);
+}
+
+/* delete confirm */
+.nt-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(10, 8, 6, 0.6);
+}
+
+.nt-confirm {
+  width: 100%;
+  max-width: 360px;
+  padding: 24px;
+  color: var(--n-text);
+  background: var(--n-nav-bg);
+  border: 1px solid var(--n-line);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.nt-confirm h2 {
+  margin: 0 0 6px;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--n-heading);
+}
+
+.nt-confirm p {
+  margin: 0 0 20px;
+  color: var(--nt-muted);
+}
+
+.nt-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.nt-btn-ghost,
+.nt-btn-danger {
+  height: 42px;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nt-btn-ghost {
+  color: var(--n-text);
+  background: transparent;
+  border: 1px solid var(--n-line);
+}
+
+.nt-btn-ghost:hover {
+  background: var(--n-hover);
+}
+
+.nt-btn-danger {
+  color: #fff;
+  background: #c0564a;
+  border: 0;
+}
+
+.nt-btn-danger:hover {
+  background: #cc6558;
+}
+
+/* toast messages (bottom) */
+.nt-toasts {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 130;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(calc(100% - 32px), 400px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.nt-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  color: #efe3cf;
+  background: #26372c;
+  border: 1px solid rgba(134, 180, 148, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+  animation: nt-toast-in 0.25s ease-out;
+}
+
+.nt-toast-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.nt-toast-title {
+  font-size: 0.98rem;
+}
+
+.nt-toast-text {
+  margin-top: 2px;
+  overflow: hidden;
+  font-size: 0.85rem;
+  color: #b9ad98;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nt-toast-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  padding: 6px;
+  color: #efe3cf;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.nt-toast-close:hover {
+  opacity: 1;
+}
+
+.nt-new:focus-visible,
+.nt-tab:focus-visible,
+.nt-btn-ghost:focus-visible,
+.nt-btn-danger:focus-visible,
+.nt-toast-close:focus-visible {
+  outline: 2px solid #7aab8a;
+  outline-offset: 2px;
+}
+
+@keyframes nt-toast-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 560px) {
+  .nt-page {
+    padding: 20px 14px 96px;
+  }
+  .nt-title {
+    font-size: 1.7rem;
+  }
+  .nt-new {
+    height: 42px;
+    padding: 0 16px;
+  }
+  .nt-tab {
+    padding: 0 16px;
+  }
+  .nt-grid {
+    columns: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
