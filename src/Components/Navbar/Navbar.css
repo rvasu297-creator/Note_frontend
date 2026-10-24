@@ -211,9 +211,24 @@
 }
 
 @media (max-width: 360px) {
-  .nav-brand-name {
-    display: none;
+  .nav {
+    padding: 0 8px;
+    gap: 5px;
   }
+
+  .nav-brand {
+    gap: 6px;
+  }
+
+  .nav-brand-name {
+    display: block;
+    font-size: 1.3rem;
+  }
+
+  .nav-right {
+    gap: 5px;
+  }
+
   .nav-icon-btn,
   .nav-avatar,
   .nav-logout {
